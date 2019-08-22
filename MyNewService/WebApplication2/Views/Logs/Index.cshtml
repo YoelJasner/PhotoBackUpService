@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication2.Models.LogMessage>
+
+@{
+    ViewBag.Title = "Logs";
+}
+
+<h2>Logs</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!--<div class="form-horizontal">
+    <h4>Enter status type of messages to display</h4>
+    <hr />
+    <div class="form-group">
+        <label>Status: </label>
+       <div class="col-md-10">
+           <input type="text" class="form-control" id="statusTypeIn">
+       </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>-->
+
+<form class="form-group">
+    Status: <input type="text" name="statusToFilter" value="" class="form-control"><br>
+    <input type="submit" value="Filter" class="btn btn-primary">
+</form>

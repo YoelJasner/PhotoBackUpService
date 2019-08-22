@@ -1,0 +1,22 @@
+﻿@model WebApplication2.Models.PathData
+@{
+    ViewBag.Title = "Message Remove Handler";
+}
+
+<h2>Remove Handler</h2>
+<div class="container">
+    <label>Path to stop handeling: @Model.Path</label>
+    <br/>
+    <br/>
+    <label>Are you sure you want to stop this handler?</label>
+    <button class="btn btn-default" id="cancelButton" onclick="window.location.href='@Url.Action("Index", "Config")'">Cancel</button>
+    <button class="btn btn-primary" value="Ok" id="okButton">Ok</button>
+</div>
+
+<script type="text/javascript">
+    $("#okButton").click(function () {
+        document.getElementById("cancelButton").disabled = true;
+        document.getElementById("okButton").disabled = true;
+        location.href = "RemoveHandler";
+    });
+</script>

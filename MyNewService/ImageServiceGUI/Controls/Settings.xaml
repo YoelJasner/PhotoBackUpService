@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ImageServiceGUI.Controls.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImageServiceGUI.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Label HorizontalAlignment="Center" DockPanel.Dock="Top">Settings</Label>
+        <Grid TextBlock.FontSize="14">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Padding="3" Margin="3"><Bold>Output Directory:</Bold></TextBlock>
+            <TextBlock x:Name="OutPutDirectoryTxt" Grid.Column="1" Padding="3" Margin="3" Text="{Binding VM_OutputDirectory}"></TextBlock>
+            <TextBlock Grid.Row="1" Padding="3" Margin="3"><Bold>Source Name:</Bold></TextBlock>
+            <TextBlock x:Name="SourceNameTxt" Grid.Row="1" Grid.Column="1" Padding="3" Margin="3" Text="{Binding VM_SourceName}"></TextBlock>
+            <TextBlock Padding="3" Margin="3" Grid.Row="2"><Bold>Log Name:</Bold></TextBlock>
+            <TextBlock x:Name="LogNameTxt" Grid.Row="2" Grid.Column="1" Padding="3" Margin="3" Text="{Binding VM_LogName}"></TextBlock>
+            <TextBlock Padding="3" Margin="3" Grid.Row="3"><Bold>Thumbnail Size:</Bold></TextBlock>
+            <TextBlock x:Name="ThumbnailSizeTxt" Grid.Row="3" Grid.Column="1" Padding="3" Margin="3" Text="{Binding VM_ThumbnailSize}"></TextBlock>
+        </Grid>
+
+        <Button Padding="3" Margin="3" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Command="{Binding SubRemove}">Remove</Button>
+        <ListBox Margin="3" Height="Auto" SelectionMode="Single" Name="pathsList" HorizontalContentAlignment="Stretch" ItemsSource="{Binding VM_DirectoryHandlerPaths}" SelectedItem="{Binding VM_SelectedDirectoryPath}">
+        </ListBox>
+    </StackPanel>
+</UserControl>
